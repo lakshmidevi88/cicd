@@ -1,0 +1,26 @@
+
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 24
+    commands:
+      - npm ci
+
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  base-directory: dist
+  files:
+    - '**/*'
+The important fix is:
+
+files:
+  - '**/*'
+instead of:
+
+files:
+  '**/*'
